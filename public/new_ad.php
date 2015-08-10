@@ -23,7 +23,7 @@ require_once '../template/bootstrap.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">What iGot</a>
+          <a class="navbar-brand" href="home.php">What iGot</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -57,33 +57,29 @@ require_once '../template/bootstrap.php';
             <div class="form-group">
                 <label for="name">Item Name</label>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" value="<?= isset($_POST['name']) ? Input::get('name') : '' ; ?>" require=' '>
-                
             </div>
-        <!--     <div class="form-group">
-                <label for="location">Location of Park</label>
+            <div class="form-group">
+                <label for="location">Location</label>
                 <select name="location" id="location" class="form-control">
                     <?php foreach ($states as $state): ?>
                         <option value="<?= $state;  ?>"><?= $state; ?></option>
                     <?php endforeach ?>
                 </select>
-            </div> -->
-            <!--  <div class="form-group">
-                <label for="date">Date of Establishment</label>
-                <input value="<?= isset($_POST['date']) ? Input::get('date') : '' ;  ?>" type="date" class="form-control" name="date" id="date" require=' '>
-            </div> -->
-             <div class="form-group">
+            </div> 
+            <div class="form-group">
                 <label for="price">Asking Price</label>
                 <input value="<?= isset($_POST['price']) ? Input::get('price') : '' ;  ?>" type="text" class="form-control" name="price" id="price"  require=' '>                
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <label for="description">Description of Item</label>
                 <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" require=' '><?= isset($_POST['description']) ? Input::get('name') : '' ;  ?></textarea>
             </div>
+            <div class="form-group">
+                <label for="img">Photo</label>
+                <input type="file" attr="image" id="img" class="btn btn-large">
+            </div>
             <input class="btn btn-primary" type="submit" style="float: right">
         </form>
-
-
-
       <footer>
         <p>&copy; Company 2014</p>
       </footer>

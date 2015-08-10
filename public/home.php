@@ -23,7 +23,7 @@ require_once '../template/bootstrap.php';
             </span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">What iGot</a>
+          <a class="navbar-brand" href="home.php">What iGot</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -42,9 +42,8 @@ require_once '../template/bootstrap.php';
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>What iGot</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <h1>What iGot <small>Ecommerce for the Modern World</small></h1>
+        <img src="/../image/logo-idea-copy.jpg" class="img-rounded" alt="Confusion">
         <button class="btn btn-inverse"><a href="new_ad.php">Make New Ad</a></button>
       </div>
     </div>
