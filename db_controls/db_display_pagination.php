@@ -1,8 +1,8 @@
 <?php
 //call files to connect to database use $config for code reusability
-require_once '../parks_php/parks_config.php';
-require_once 'db_connect.php';
-require_once '../parks_php/add_park.php';
+require_once '...';
+require_once '...';
+require_once '...';
  //declare variables for offset, total number of columns/parks, and total number of pages
 $cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);
 
