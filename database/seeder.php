@@ -1,10 +1,5 @@
 <?php  
-	// define('DB_HOST', '127.0.0.1');
- //    define('DB_NAME', 'nat_parks_db');
- //    define('DB_USER', 'drod');
- //    define('DB_PASS', 'Rodgers12');
-    
-    require_once 'db_connect.php';
+	require_once '../db_controls/db_connect.php';
 
     $truncate = 'TRUNCATE items';
     $dbc->exec($truncate);

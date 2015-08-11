@@ -1,8 +1,8 @@
 <?php 
-// define('DB_HOST', '127.0.0.1');
-// define('DB_NAME', 'WhatiGot_db');
-// define('DB_USER', 'root');
-// define('DB_PASS', '');
+define('DB_HOST', '127.0.0.1');
+define('DB_NAME', 'WhatiGot_db');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 //instanciate new connection to database
 $dbc = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
