@@ -1,7 +1,6 @@
 <?php 
 // require_once 'Input.php';
 require_once '../db_controls/db_config.php';
-require_once 'add_ad.php';
 require_once '../db_controls/db_display_pagination.php';
 
 

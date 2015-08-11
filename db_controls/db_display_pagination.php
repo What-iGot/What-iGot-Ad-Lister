@@ -1,6 +1,6 @@
 <?php
 //call files to connect to database use $config for code reusability
-
+require_once '../template/add_ad.php';
 
  //declare variables for offset, total number of columns/parks, and total number of pages
 $cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);

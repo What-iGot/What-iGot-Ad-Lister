@@ -1,5 +1,7 @@
 <?php 
+
 require_once '../template/bootstrap.php';
+
  ?>
 
 <html>
@@ -50,33 +52,25 @@ require_once '../template/bootstrap.php';
 
     <div class="container">
       <!-- Example row of columns -->
-        <form method="POST">
+        <form method="POST" actions="upload.php" enctype="multipart/form-data">
             <?php foreach ($errors as $error) : ?>
                 <h4 id="error messages"><?= $error; ?></h4>
             <?php endforeach; ?>
             <div class="form-group">
-                <label for="name">Item Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" value="<?= isset($_POST['name']) ? Input::get('name') : '' ; ?>" require=' '>
+                <label for="item">Item Name</label>
+                <input type="text" class="form-control" name="item" id="item" placeholder="Enter Name" value="<?= isset($_POST['item']) ? Input::get('item') : '' ; ?>" require=' '>
             </div>
-            <<!-- div class="form-group">
-                <label for="location">Location</label>
-                <select name="location" id="location" class="form-control">
-                    <?php foreach ($states as $state): ?>
-                        <option value="<?= $state;  ?>"><?= $state; ?></option>
-                    <?php endforeach ?>
-                </select>
-            </div -->> 
             <div class="form-group">
                 <label for="price">Asking Price</label>
-                <input value="<?= isset($_POST['price']) ? Input::get('price') : '' ;  ?>" type="text" class="form-control" name="price" id="price"  require=' '>                
+                <input value="<?= isset($_POST['price']) ? Input::get('price') : '' ;  ?>" type="number" class="form-control" name="price" id="price"  require=' '>                
             </div>
             <div class="form-group">
                 <label for="description">Description of Item</label>
-                <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" require=' '><?= isset($_POST['description']) ? Input::get('name') : '' ;  ?></textarea>
+                <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" require=' '><?= isset($_POST['description']) ? Input::get('description') : '' ;  ?></textarea>
             </div>
             <div class="form-group">
-                <label for="img">Photo</label>
-                <input type="file" attr="image" id="img" class="btn btn-large">
+                <label for="somefile">Photo</label>
+                <input type="file" class="btn btn-large" name="somefile" id="somefile">
             </div>
             <input class="btn btn-primary" type="submit" style="float: right">
         </form>

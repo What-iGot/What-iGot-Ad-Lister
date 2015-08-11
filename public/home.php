@@ -63,7 +63,7 @@ $items = $displayArray;
                             <!-- set foreach loop to display information in human friendly manner -->
                             <? foreach ($items as $item): ?>
                                 <tr>
-                                    <td><?="{$item['name']}"; ?></td>
+                                    <td><a href="?item=<?="{$item['name']}"; ?>"><?="{$item['name']}"; ?></a></td>
                                     <td><?="{$item['description']}"; ?></td> 
                                     <td><?="{$item['price']}"; ?></td>
                                 </tr>
