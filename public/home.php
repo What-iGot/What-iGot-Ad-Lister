@@ -1,5 +1,6 @@
 <?php
 require_once '../template/bootstrap.php';  
+
 $items = $displayArray;
 ?>
 <html>
@@ -63,7 +64,7 @@ $items = $displayArray;
                             <!-- set foreach loop to display information in human friendly manner -->
                             <? foreach ($items as $item): ?>
                                 <tr>
-                                    <td><a href="?item=<?="{$item['name']}"; ?>"><?="{$item['name']}"; ?></a></td>
+                                    <td><a href="index.php?item=<?="{$item['name']}"; ?>"><?="{$item['name']}"; ?></a></td>
                                     <td><?="{$item['description']}"; ?></td> 
                                     <td><?="{$item['price']}"; ?></td>
                                 </tr>

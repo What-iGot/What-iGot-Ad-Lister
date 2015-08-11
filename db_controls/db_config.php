@@ -5,7 +5,7 @@ define("DB_USER", 'codeup');
 define("DB_PASS", 'password');
 require_once 'db_connect.php';
 
-echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
+// echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
 //set which table to pull data from
 define('SQL_TABLE', 'items');

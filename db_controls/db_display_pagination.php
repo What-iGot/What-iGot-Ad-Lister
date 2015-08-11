@@ -2,37 +2,45 @@
 //call files to connect to database use $config for code reusability
 require_once '../template/add_ad.php';
 
- //declare variables for offset, total number of columns/parks, and total number of pages
-$cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);
+if(!empty($_GET['item'])){
+    $id = '' . $_GET['item'];
+    $stmt = $dbc->query("SELECT * FROM items WHERE name = '$id'");
+    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}elseif (empty($_GET['item'])) {
+    # code...
 
-$cntstmt->execute(); 
+     //declare variables for offset, total number of columns/parks, and total number of pages
+    $cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);
 
-$totalPages = ceil(($cntstmt->fetchColumn())/$limit);
+    $cntstmt->execute(); 
 
-$input = Input::get('page');
+    $totalPages = ceil(($cntstmt->fetchColumn())/$limit);
 
-//if index at page is not set, not numeric, or greater than one then set page to page 1
-if (!$input || !is_numeric($input) || $input < 1) {
-    $offset = 0;
-    $page = 1;
-    $input = 1;
-} else{
-    //if not page 1, take index and set as page number, take index -1 * limit to get offset
-    $offset = ($input - 1) * $limit;
-    $page = $input; 
+    $input = Input::get('page');
+
+    //if index at page is not set, not numeric, or greater than one then set page to page 1
+    if (!$input || !is_numeric($input) || $input < 1) {
+        $offset = 0;
+        $page = 1;
+        $input = 1;
+    } else{
+        //if not page 1, take index and set as page number, take index -1 * limit to get offset
+        $offset = ($input - 1) * $limit;
+        $page = $input; 
+    }
+    //if index at page is greater than the total number of pages then redirect to last available page
+    if ($input > $totalPages){
+        header("Location: ?page=$totalPages");
+        exit();
+    }
+
+    $query = ("SELECT * FROM " . SQL_TABLE . " LIMIT :limit OFFSET :offset");
+
+    $stmt = $dbc->prepare($query);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+    //set query to select which table and what data to show from that table based on offset, limit, and table variables
+    $stmt->execute();
+    $displayArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-//if index at page is greater than the total number of pages then redirect to last available page
-if ($input > $totalPages){
-    header("Location: ?page=$totalPages");
-    exit();
-}
-
-$query = ("SELECT * FROM " . SQL_TABLE . " LIMIT :limit OFFSET :offset");
-
-$stmt = $dbc->prepare($query);
-$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
-$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-
-//set query to select which table and what data to show from that table based on offset, limit, and table variables
-$stmt->execute();
-$displayArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
