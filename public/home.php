@@ -1,5 +1,6 @@
 <?php
 require_once '../template/bootstrap.php';  
+$items = $displayArray;
 ?>
 <html>
     <head>
@@ -48,25 +49,45 @@ require_once '../template/bootstrap.php';
                 </div>
             </div>
         </div>
-
-
-        <div class="container">
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Item 1</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Item 2</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Item 3</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <div>
+                <div>
+                    <table class=" col-md-4 container  table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- set foreach loop to display information in human friendly manner -->
+                            <? foreach ($items as $item): ?>
+                                <tr>
+                                    <td><?="{$item['name']}"; ?></td>
+                                    <td><?="{$item['description']}"; ?></td> 
+                                    <td><?="{$item['price']}"; ?></td>
+                                </tr>
+                            <? endforeach; ?>
+                        </tbody>
+                    </table>
+                    <? if ($page > 2 && $page <= $totalPages): ?>
+            <a class='btn btn-primary' href="?page=1">FIRST</a>
+        <? endif; ?>
+       
+        <!-- allow previous button to be seen on all pages after page 1 -->
+        <? if ($page > 1 && $page <= $totalPages): ?>
+            <a class='btn btn-primary' href="?page=<?= $page - 1; ?>">PREVIOUS</a>
+        <? endif; ?>
+       
+        <!-- allow next button to be seen on all pages before last page -->
+        <? if ($page < $totalPages): ?>
+            <a class='btn btn-primary' href="?page=<?= $page + 1; ?>">NEXT</a>
+        <? endif; ?>
+       
+        <!-- allow next button to be seen on all pages before second to last page -->
+        <? if ($page < ($totalPages - 1)): ?>
+            <a class='btn btn-primary' href="?page=<?= $totalPages; ?>">LAST</a>
+        <? endif; ?>
                 </div>
                 <button class="btn btn-inverse"><a href="new_ad.php">Make New Ad</a></button>
             </div>

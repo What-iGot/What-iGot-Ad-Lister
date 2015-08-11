@@ -7,8 +7,8 @@ require 'db_connect.php';
 
 echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
-// //set which table to pull data from
-// define('SQL_TABLE', 'national_parks');
-// //set limit for use in pagination file 
-// $limit = 4;
+//set which table to pull data from
+define('SQL_TABLE', 'items');
+//set limit for use in pagination file 
+$limit = 5;
  ?>

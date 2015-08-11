@@ -2,8 +2,8 @@
 require_once '../template/Input.php';
 $errors = [];
 if(!empty($_POST)){
-    $insertQuery = "INSERT INTO  (item, location, list_date, price, description) 
-            VALUES (:item, :location, :list_date, :price, :description)";
+    $insertQuery = "INSERT INTO  (item, price, description) 
+            VALUES (:item, :price, :description)";
     $stmt = $dbc->prepare($insertQuery);
         //prepare database to run query
     try {
@@ -16,14 +16,14 @@ if(!empty($_POST)){
     } catch (InvalidArgumentException $e){
         $errors[] = "Item - " . $e->getMessage();
     }
-    try {
-    // Create a person
-        $location = Input::get('location');
-        $stmt->bindValue(':location', $location, PDO::PARAM_STR);
-    } catch (Exception $e) {
-            // Report any errors
-        $errors[] = "Location - " . $e->getMessage();
-    } 
+    // try {
+    // // Create a person
+    //     $location = Input::get('location');
+    //     $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+    // } catch (Exception $e) {
+    //         // Report any errors
+    //     $errors[] = "Location - " . $e->getMessage();
+    // } 
     try {
     // Create a person
         $price = Input::getNumber('price');

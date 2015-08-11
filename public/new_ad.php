@@ -58,14 +58,14 @@ require_once '../template/bootstrap.php';
                 <label for="name">Item Name</label>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" value="<?= isset($_POST['name']) ? Input::get('name') : '' ; ?>" require=' '>
             </div>
-            <div class="form-group">
+            <<!-- div class="form-group">
                 <label for="location">Location</label>
                 <select name="location" id="location" class="form-control">
                     <?php foreach ($states as $state): ?>
                         <option value="<?= $state;  ?>"><?= $state; ?></option>
                     <?php endforeach ?>
                 </select>
-            </div> 
+            </div -->> 
             <div class="form-group">
                 <label for="price">Asking Price</label>
                 <input value="<?= isset($_POST['price']) ? Input::get('price') : '' ;  ?>" type="text" class="form-control" name="price" id="price"  require=' '>                
