@@ -48,9 +48,9 @@ require_once "../template/bootstrap.php";
     <div class="container">
       <!-- Example row of columns -->
 
-                <h2><?=$item['name']; ?></h2>
-                <h5><?=$item['description']; ?></h5> 
-                <h4><?='$' . $item['price']; ?></h4>
+                <h1><?=$item['name']; ?></h2>
+                <h3><?=$item['description']; ?></h3> 
+                <h2><?='$' . $item['price']; ?></h2>
 
         
 
@@ -59,9 +59,9 @@ require_once "../template/bootstrap.php";
 
 
 
-        <footer>
-            <p>&copy; Company 2014</p>
-        </footer>
     </div> <!-- /container -->
     </body>
+    <footer>
+        <p>&copy; What iGot 2015 <br>What iGot is currently only available in San Antonio Tx</p>
+    </footer>
 </html>

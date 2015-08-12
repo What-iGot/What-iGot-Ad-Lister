@@ -76,28 +76,31 @@ $items = $displayArray;
         <? endif; ?>
        
         <!-- allow previous button to be seen on all pages after page 1 -->
-        <? if ($page > 1 && $page <= $totalPages): ?>
-            <a class='btn btn-primary' href="?page=<?= $page - 1; ?>">PREVIOUS</a>
-        <? endif; ?>
-       
-        <!-- allow next button to be seen on all pages before last page -->
-        <? if ($page < $totalPages): ?>
-            <a class='btn btn-primary' href="?page=<?= $page + 1; ?>">NEXT</a>
-        <? endif; ?>
-       
-        <!-- allow next button to be seen on all pages before second to last page -->
-        <? if ($page < ($totalPages - 1)): ?>
-            <a class='btn btn-primary' href="?page=<?= $totalPages; ?>">LAST</a>
-        <? endif; ?>
-                </div>
+        <div class="pagination pagination-centered">
+            <? if ($page > 1 && $page <= $totalPages): ?>
+                <a class='btn btn-primary' href="?page=<?= $page - 1; ?>">PREVIOUS</a>
+            <? endif; ?>
+           
+            <!-- allow next button to be seen on all pages before last page -->
+            <? if ($page < $totalPages): ?>
+                <a class='btn btn-primary' href="?page=<?= $page + 1; ?>">NEXT</a>
+            <? endif; ?>
+           
+            <!-- allow next button to be seen on all pages before second to last page -->
+            <? if ($page < ($totalPages - 1)): ?>
+                <a class='btn btn-primary' href="?page=<?= $totalPages; ?>">LAST</a>
+            <? endif; ?>
+        </div>
+            </div>
                 <button class="btn btn-inverse"><a href="new_ad.php">Make New Ad</a></button>
             </div>
 
             <hr>
 
-            <footer>
-                <p>&copy; Company 2014 <br> Image By Steven Lewis</p>
-            </footer>
+            
         </div> <!-- /container -->
     </body>
+    <footer>
+        <p>&copy; What iGot 2015 <br>What iGot is currently only available in San Antonio Tx<br> Image By Steven Lewis</p>
+    </footer>
 </html>

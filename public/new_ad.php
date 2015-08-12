@@ -75,7 +75,7 @@ require_once '../template/bootstrap.php';
 
         </form>
         <footer>
-            <p>&copy; Company 2014</p>
+            <p>&copy; What iGot 2015 <br>What iGot is currently only available in San Antonio Tx</p>
         </footer>
     </div> <!-- /container -->
     </body>

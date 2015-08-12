@@ -49,6 +49,13 @@ if(!empty($_POST)){
     }
     if(empty($errors)){
         $stmt->execute();
+        $cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);
+
+    $cntstmt->execute(); 
+
+    $totalPages = ceil(($cntstmt->fetchColumn())/$limit);
+        header("Location: home.php?page=$totalPages");
+        exit();
     }
 }
 
