@@ -2,6 +2,7 @@
 require_once '../template/bootstrap.php';  
 
 $items = $displayArray;
+
 ?>
 <html>
     <head>
@@ -92,13 +93,31 @@ $items = $displayArray;
             <? endif; ?>
         </div>
             </div>
-                <button class="btn btn-inverse"><a href="new_ad.php">Make New Ad</a></button>
+                <a class="btn btn-warnig" href="new_ad.php">Make New Ad</a>
             </div>
 
             <hr>
 
             
         </div> <!-- /container -->
+        <audio src="loopit.wav" id='loop'></audio>
+        <script>
+            "use strict";
+                function playSound(sound){
+                    document.getElementById(sound).play();
+                }
+                (function(){
+                    var konamiCode = "38,38,40,40,37,39,37,39,66,65,13";
+                    var code = [];
+                    $(document).keyup(function(event){
+                        console.log(event.keyCode);
+                        code.push(event.keyCode);
+                        if (code.toString().indexOf(konamiCode) >= 0){
+                            playSound('loop');
+                        }
+                    })
+                })();
+            </script>
     </body>
     <footer>
         <p>&copy; What iGot 2015 <br>What iGot is currently only available in San Antonio Tx<br> Image By Steven Lewis</p>

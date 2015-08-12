@@ -34,7 +34,7 @@ if(!empty($_GET['postid'])){
         exit();
     }
 
-    $query = ("SELECT * FROM " . SQL_TABLE . " LIMIT :limit OFFSET :offset");
+    $query = ("SELECT * FROM " . SQL_TABLE . " order by postdate DESC LIMIT :limit OFFSET :offset");
 
     $stmt = $dbc->prepare($query);
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);

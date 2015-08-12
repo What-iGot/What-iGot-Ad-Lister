@@ -1,9 +1,10 @@
 <?php 
 require_once 'Input.php';
 $errors = [];
+// date_time_set('America/Chicago');
 if(!empty($_POST)){
-    $insertQuery = "INSERT INTO items (name, description, price, image_url) 
-            VALUES (:item, :description, :price, :image_url)";
+    $insertQuery = "INSERT INTO items (name, description, price, image_url, postdate) 
+            VALUES (:item, :description, :price, :image_url, :postdate)";
     $stmt = $dbc->prepare($insertQuery);
         //prepare database to run query
     try {
@@ -48,13 +49,14 @@ if(!empty($_POST)){
         }
     }
     if(empty($errors)){
+        $postdate = date("Y-m-d h:i");
+        $stmt->bindValue(':postdate', $postdate, PDO::PARAM_STR);
         $stmt->execute();
+        
         $cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);
-
-    $cntstmt->execute(); 
-
-    $totalPages = ceil(($cntstmt->fetchColumn())/$limit);
-        header("Location: home.php?page=$totalPages");
+        $cntstmt->execute(); 
+        $totalPages = ceil(($cntstmt->fetchColumn())/$limit);
+        header("Location: home.php?page=1");
         exit();
     }
 }

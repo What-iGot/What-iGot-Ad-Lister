@@ -10,5 +10,5 @@ require_once 'db_connect.php';
 //set which table to pull data from
 define('SQL_TABLE', 'items');
 //set limit for use in pagination file 
-$limit = 5;
+$limit = 10;
  ?>
