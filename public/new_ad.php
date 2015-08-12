@@ -45,8 +45,6 @@ require_once '../template/bootstrap.php';
     <div class="jumbotron">
         <div class="container">
             <h1>Create A New Ad</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
 
@@ -57,22 +55,24 @@ require_once '../template/bootstrap.php';
                 <h4 id="error messages"><?= $error; ?></h4>
             <?php endforeach; ?>
             <div class="form-group">
-                <label for="item">Item Name</label>
+                <label for="item">Item Name *</label>
                 <input type="text" class="form-control" name="item" id="item" placeholder="Enter Name" value="<?= isset($_POST['item']) ? Input::get('item') : '' ; ?>" require=' '>
             </div>
             <div class="form-group">
-                <label for="price">Asking Price</label>
+                <label for="price">Asking Price *</label>
                 <input value="<?= isset($_POST['price']) ? Input::get('price') : '' ;  ?>" type="number" class="form-control" name="price" id="price"  require=' '>                
             </div>
             <div class="form-group">
-                <label for="description">Description of Item</label>
+                <label for="description">Description of Item *</label>
                 <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" require=' '><?= isset($_POST['description']) ? Input::get('description') : '' ;  ?></textarea>
             </div>
             <div class="form-group">
                 <label for="somefile">Photo</label>
                 <input type="file" class="btn btn-large" name="somefile" id="somefile">
+                <p class="text text-error">* Required field</p>
+                <input class="btn btn-primary" type="submit" style="float: right">
             </div>
-            <input class="btn btn-primary" type="submit" style="float: right">
+
         </form>
         <footer>
             <p>&copy; Company 2014</p>

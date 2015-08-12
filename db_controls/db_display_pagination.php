@@ -2,11 +2,11 @@
 //call files to connect to database use $config for code reusability
 require_once '../template/add_ad.php';
 
-if(!empty($_GET['item'])){
-    $id = '' . $_GET['item'];
-    $stmt = $dbc->query("SELECT * FROM items WHERE name = '$id'");
-    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}elseif (empty($_GET['item'])) {
+if(!empty($_GET['postid'])){
+    $id = '' . $_GET['postid'];
+    $stmt = $dbc->query("SELECT * FROM items WHERE id = '$id'");
+    $item = $stmt->fetch(PDO::FETCH_ASSOC);
+}elseif (empty($_GET['postid'])) {
     # code...
 
      //declare variables for offset, total number of columns/parks, and total number of pages
