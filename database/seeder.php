@@ -26,7 +26,7 @@
     	'name'		  => 'TV',
     	'description' => 'Great for watching stuff.',
     	'price'		  => 150.00,
-    	'image_url'   => '/img/tv.jpg'	
+    	'image_url'   => '/img/tv.jpg'
     ]
     ];
    

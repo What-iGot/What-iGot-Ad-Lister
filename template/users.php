@@ -56,23 +56,32 @@ class User extends Model
                     SET id = :id, 
                     user_id = :user_id,
                     user_name = :user_name,
-                    email = :email
+                    first_name = :first_name,
+                    last_name = :last_name,
+                    email = :email,
+                    password = :password
                     WHERE id = :id';
         $stmt = self::$dbc->prepare($query);
         $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
         $stmt->bindValue(':user_id', $this->attributes['user_id'], PDO::PARAM_INT);
         $stmt->bindValue(':user_name', $this->attributes['user_name'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $this->attributes['email'], PDO::_STR);
+        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
+        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+        $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
         $stmt->execute();
 	}
 	public function insert()
 	{
-		$query = 'INSERT INTO users (id, user_id, user_name, email) VALUES (:id, :user_id, :user_name, :email);';
+		$query = 'INSERT INTO users (id, user_id, user_name, first_name, last_name, email, password) VALUES (:id, :user_id, :user_name, :first_name, :last_name :email, :password);';
 		$stmt = self::$dbc->prepare($query);
 		$stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
 		$stmt->bindValue(':user_id', $this->attributes['user_id'], PDO::PARAM_INT);
 		$stmt->bindValue(':user_name', $this->attributes['user_name'], PDO::PARAM_STR);
-		$stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM::_STR);
+		$stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
+		$stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
+		$stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+		$stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
 		$stmt->execute();
 	}
 	public function delete()

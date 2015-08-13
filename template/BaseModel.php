@@ -1,6 +1,6 @@
 <?php 
 		define('DB_HOST', '127.0.0.1');
-		define('DB_NAME', 'nat_parks_db');
+		define('DB_NAME', 'WhatiGot_db');
 		define('DB_USER', 'drod');
 		define('DB_PASS', 'codeuprocks');
 
@@ -9,7 +9,7 @@ class Model
 {
     // Array to store our key/value data
     public $attributes = [];
-    protected static $table;
+    protected static $table = 'items';
     protected static $dbc;
 
     public function __construct()
