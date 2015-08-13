@@ -1,7 +1,10 @@
 <?php 
-require_once "../template/bootstrap.php";
+
+require_once '../template/bootstrap.php';
+
  ?>
- <html>
+
+<html>
     <head>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,38 +44,27 @@ require_once "../template/bootstrap.php";
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
-            <h1>What iGot</h1>
+            <h1>Create A New Ad</h1>
         </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
-
-                <h1><?=$item['name']; ?></h2>
-                <h3><?=$item['description']; ?></h3> 
-                <h2><?='$' . $item['price']; ?></h2>
-                <h6><?= $item['postdate']; ?></h6>
-
-        
-
-        <img src="<?=$item['image_url'] ; ?>">
-
-
-        <!-- <form method="POST" actions="upload.php" enctype="multipart/form-data">
+        <form method="POST" actions="upload.php" enctype="multipart/form-data">
             <?php foreach ($errors as $error) : ?>
                 <h4 id="error messages"><?= $error; ?></h4>
             <?php endforeach; ?>
             <div class="form-group">
                 <label for="item">Item Name *</label>
-                <input type="text" class="form-control" name="item" id="item" placeholder="Enter Name" value="<?= $item['name'] ; ?>" require=' '>
+                <input type="text" class="form-control" name="item" id="item" placeholder="Enter Name" value="<?= isset($_POST['item']) ? Input::get('item') : '' ; ?>" require=' '>
             </div>
             <div class="form-group">
                 <label for="price">Asking Price *</label>
-                <input value="<?= $item['price'] ;  ?>" type="number" class="form-control" name="price" id="price" >                
+                <input value="<?= isset($_POST['price']) ? Input::get('price') : '' ;  ?>" type="number" class="form-control" name="price" id="price"  require=' '>                
             </div>
             <div class="form-group">
                 <label for="description">Description of Item *</label>
-                <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" value="<?= $item['description'] ;  ?>"></textarea>
+                <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" require=' '><?= isset($_POST['description']) ? Input::get('description') : '' ;  ?></textarea>
             </div>
             <div class="form-group">
                 <label for="somefile">Photo</label>
@@ -81,11 +73,11 @@ require_once "../template/bootstrap.php";
                 <input class="btn btn-primary" type="submit" style="float: right">
             </div>
 
-        </form> -->
-
+        </form>
+        <footer>
+            <p>&copy; What iGot 2015 <br>What iGot is currently only available in San Antonio Tx</p>
+        </footer>
     </div> <!-- /container -->
     </body>
-    <footer>
-        <p>&copy; What iGot 2015 <br>What iGot is currently only available in San Antonio Tx</p>
-    </footer>
 </html>
+
