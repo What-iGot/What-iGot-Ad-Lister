@@ -5,8 +5,8 @@ class Log
 	private $handle;
 	
 	public function __construct($prefix = "log"){
-		$this->setFileName();
-		$this->handle = fopen($this->filename, 'a');
+		$this->setFileName($prefix);
+		$this->handle = fopen($this->filename(), 'a');
 	}
 	
 	public function logInfo($message){

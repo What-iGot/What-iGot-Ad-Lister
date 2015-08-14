@@ -1,6 +1,7 @@
 <?php 
 require_once 'Input.php';
 require_once 'Log.php';
+
 class Auth
 {
 	public static $hash = '$2y$10$SLjwBwdOVvnMgWxvTI4Gb.YVcmDlPTpQystHMO2Kfyi/DS8rgA0Fm';
