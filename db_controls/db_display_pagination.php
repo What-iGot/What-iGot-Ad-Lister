@@ -10,7 +10,7 @@ if(!empty($_GET['postid'])){
     # code...
 
      //declare variables for offset, total number of columns/parks, and total number of pages
-    $cntstmt = $dbc->prepare("SELECT count(*) FROM " . SQL_TABLE);
+    $cntstmt = $dbc->prepare("SELECT count(*) FROM items");
 
     $cntstmt->execute(); 
 
@@ -34,7 +34,7 @@ if(!empty($_GET['postid'])){
         exit();
     }
 
-    $query = ("SELECT * FROM " . SQL_TABLE . " order by postdate DESC LIMIT :limit OFFSET :offset");
+    $query = ("SELECT * FROM items order by postdate DESC LIMIT :limit OFFSET :offset");
 
     $stmt = $dbc->prepare($query);
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
