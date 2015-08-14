@@ -1,4 +1,4 @@
-# What iGot is a Ebay/Craigslist clone.
+# What iGot is an Ebay/Craigslist clone.
 
 1. Build your site layout
 2. Generate and render PHP mock data

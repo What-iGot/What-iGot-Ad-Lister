@@ -1,9 +1,9 @@
 <?php 
-define("DB_HOST",'127.0.0.1');
-define("DB_NAME", 'WhatiGot_db');
-define("DB_USER", 'codeup');
-define("DB_PASS", 'password');
-require_once 'db_connect.php';
+// define("DB_HOST", $_ENV['DB_HOST']);
+// define("DB_NAME", $_ENV['DB_NAME']);
+// define("DB_USER", $_ENV['DB_USER']);
+// define("DB_PASS", $_ENV['DB_PASS']);
+// require_once 'db_connect.php';
 
 // echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
