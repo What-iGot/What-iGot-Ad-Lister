@@ -38,7 +38,8 @@
                         </span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">What iGot</a>
+                    <a class="navbar-brand" href="/">Home</a>
+                    <a class="navbar-brand" href="/ads">All Ads</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">

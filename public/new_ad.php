@@ -1,7 +1,7 @@
 <?php 
 
 require_once '../template/bootstrap.php';
-
+require_once '../template/add_ad.php';
  ?>
 
 <html>
@@ -16,7 +16,7 @@ require_once '../template/bootstrap.php';
 
     <div class="container">
       <!-- Example row of columns -->
-        <form method="POST" actions="upload.php" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             <?php foreach ($errors as $error) : ?>
                 <h4 id="error messages"><?= $error; ?></h4>
             <?php endforeach; ?>
