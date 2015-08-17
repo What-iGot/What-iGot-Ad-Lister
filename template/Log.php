@@ -1,48 +1,37 @@
-<?php 
+<?php
 class Log
 {
-	private $filename;
-	private $handle;
-	
-	public function __construct($prefix = "log"){
-		$this->setFileName();
-		$this->handle = fopen($this->filename, 'a');
-	}
-	
-	public function logInfo($message){
-	    return $this->logMessage("INFO", $message);
-	}
-	
-	public function logError($message){
-	    return $this->logMessage("ERROR", $message);
-	}
-	
-	public function logMessage($logLevel, $message)
-	{
-	    fwrite($this->handle, PHP_EOL . date("Y-m-d H:i:s ") . "[{$logLevel}] $message" . PHP_EOL);
-	}
-	
-	private function __destruct(){
-		if (isset($handle)) {
-			fclose($this->handle);
-		}
-	}
-
-	protected function setFileName($prefix)
+    protected $filename;
+    protected $handle;
+    protected $prefix;
+    public function __construct($prefix = 'log')
     {
-        $this->filename = htmlspecialchars(strip_tags(trim($prefix)));
+        $this->prefix = $prefix."-";
     }
-
-
-    public function getFirstName()
+    public function __destruct()
     {
-        return $this->firstName;
+        if ( isset($this->handle) ) {
+            fclose($this->handle);
+        }
     }
-
-    public function getLastName()
+    public function logMessage($level, $message)
     {
-        return $this->lastName;
+        date_default_timezone_set('America/Chicago');
+        $filename = $this->prefix.date("Y-m-d").".log";
+        $date = date('Y-m-d H:i:s');
+        $handle = fopen($filename, 'a+');
+        fwrite($handle, "[{$level}]: {$message} Timestamp: {$date}\n");
+        fclose($handle);
     }
-
-}
- ?>
+    public function info($message)
+    {
+        $logLevel = "INFO";
+        $this->logMessage($logLevel, $message);
+    }
+    public function error($message)
+    {
+        $logLevel = "ERROR";
+        $this->logMessage($logLevel, $message);
+    }
+} // END LOG CLASS
+?>

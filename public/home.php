@@ -58,7 +58,7 @@ $items = $displayArray;
                                 <? endif; ?>
                             </div>
                                 </div>
-                                    <a class="btn btn-warnig" href="new_ad.php">Make New Ad</a>
+                                    <a class="btn btn-warnig" href="/new-ad">Make New Ad</a>
                                 </div>
 
                                 <hr>    

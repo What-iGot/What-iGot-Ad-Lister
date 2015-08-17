@@ -3,7 +3,7 @@ $_ENV = include '../.env.php';
 
 class Model {
 
-    protected static $dbc;
+    public static $dbc;
     protected static $table;
 
     public $attributes = array();

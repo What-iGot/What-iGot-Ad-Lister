@@ -43,9 +43,9 @@ if(!empty($_GET['postid'])){
                 <textarea class="form-control" rows="3" name="description" id="description" placeholder="Description of Item" require=' ' value="<?= $item['description'] ;  ?>"></textarea>
             </div>
             <div class="form-group">
-                <label for="somefile">Photo</label>
-                <input type="file" class="btn btn-large" name="somefile" id="somefile">
-                <p class="text text-error">* Required field</p>
+                <label for="somefile">Photo **</label>
+                <input type="file" class="btn btn-large" name="somefile" id="somefile" value="<?= $item['image_url']; ?>">
+                <p class="text text-error">* Required field <br>** If no file selected for image, ad will update to contain no image**</p>
                 <input class="btn btn-primary" type="submit" style="float: right">
             </div>
 

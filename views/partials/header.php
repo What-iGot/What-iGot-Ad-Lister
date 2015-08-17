@@ -42,7 +42,13 @@
                     <a class="navbar-brand" href="/ads">All Ads</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right">
+                    <?php if (isset($_SESSION['LOGGED_IN_USER'])) : ?>
+                        <a class="navbar-brand navbar-right" href="/logout">Log Out</a>
+                    <?php else: ?>
+                        <a class="navbar-brand navbar-right" href="/login">Log In</a>
+                    <?php endif; ?>
+                    <a class="navbar-brand navbar-right" href="/new-user">New User</a>
+                   <!--  <form class="navbar-form navbar-right">
                         <div class="form-group">
                             <input type="email" placeholder="Email" class="form-control">
                         </div>
@@ -50,7 +56,7 @@
                             <input type="password" placeholder="Password" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-success">Sign in</button>
-                    </form>
+                    </form> -->
                 </div><!--/.navbar-collapse -->
             </div>
         </nav>
