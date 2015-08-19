@@ -1,6 +1,7 @@
 <?php
 //call files to connect to database use $config for code reusability
-require_once '../template/add_ad.php';
+
+require_once '../template/Input.php';
 
 if(!empty($_GET['postid'])){
     $id = '' . $_GET['postid'];

@@ -37,12 +37,12 @@ $items = $displayArray;
                             <? endforeach; ?>
                         </tbody>
                     </table>
-                    <? if ($page > 2 && $page <= $totalPages): ?>
-                     <a class='btn btn-primary' href="?page=1">FIRST</a>
-                            <? endif; ?>
                            
                             <!-- allow previous button to be seen on all pages after page 1 -->
                             <div class="pagination pagination-centered">
+                                <? if ($page > 2 && $page <= $totalPages): ?>
+                                    <a class='btn btn-primary' href="?page=1">FIRST</a>
+                                <? endif; ?>
                                 <? if ($page > 1 && $page <= $totalPages): ?>
                                     <a class='btn btn-primary' href="?page=<?= $page - 1; ?>">PREVIOUS</a>
                                 <? endif; ?>
@@ -58,7 +58,7 @@ $items = $displayArray;
                                 <? endif; ?>
                             </div>
                                 </div>
-                                    <a class="btn btn-warnig" href="new_ad.php">Make New Ad</a>
+                                    <a class="btn btn-warnig" href="/new-ad">Make New Ad</a>
                                 </div>
 
                                 <hr>    

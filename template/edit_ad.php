@@ -47,14 +47,16 @@ if(!empty($_POST)){
     if(empty($errors)){
 
         // $user_id = (int)$_SESSION['user_id'];
+        $ad_id = Input::get('postid');
         $new_ad = new Ad();
         $new_ad->name         = $item;
         $new_ad->price        = $price;
-        $new_ad->image_url      = $filename;
+        $new_ad->image_url    = $filename;
         $new_ad->description  = $description;
         $new_ad->postdate     = date('Y-m-d h:i');
+        $new_ad->id           = $ad_id;
         // $new_ad->user_id      = $user_id;
-        $new_ad->save();
+        $new_ad->update();
 
         header("Location: /");
         exit();

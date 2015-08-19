@@ -47,10 +47,8 @@ $items = $displayArray;
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1>What iGot <small>Ecommerce for the Modern World</small></h1>
-                <div>
-                    <img src="img/logo-idea-copy.jpg" class="img-rounded" alt="Confusion">
-                </div>
+                <h1>What iGot <small>All Ads</small></h1>
+
             </div>
         </div>
             <div>
@@ -67,19 +65,19 @@ $items = $displayArray;
                             <!-- set foreach loop to display information in human friendly manner -->
                             <? foreach ($items as $item): ?>
                                 <tr>
-                                    <td><a href="index.php?postid=<?="{$item['id']}"; ?>"><?="{$item['name']}"; ?></a></td>
+                                    <td><a href="show.php?postid=<?="{$item['id']}"; ?>"><?="{$item['name']}"; ?></a></td>
                                     <td><?="{$item['description']}"; ?></td> 
                                     <td>$<?="{$item['price']}"; ?></td>
                                 </tr>
                             <? endforeach; ?>
                         </tbody>
                     </table>
-                    <? if ($page > 2 && $page <= $totalPages): ?>
-            <a class='btn btn-primary' href="?page=1">FIRST</a>
-        <? endif; ?>
-       
         <!-- allow previous button to be seen on all pages after page 1 -->
         <div class="pagination pagination-centered">
+            <? if ($page > 2 && $page <= $totalPages): ?>
+                <a class='btn btn-primary' href="?page=1">FIRST</a>
+            <? endif; ?>
+       
             <? if ($page > 1 && $page <= $totalPages): ?>
                 <a class='btn btn-primary' href="?page=<?= $page - 1; ?>">PREVIOUS</a>
             <? endif; ?>
@@ -95,7 +93,7 @@ $items = $displayArray;
             <? endif; ?>
         </div>
             </div>
-                <a class="btn btn-warnig" href="new_ad.php">Make New Ad</a>
+                <a class="btn btn-warnig" href="/new-ad">Make New Ad</a>
             </div>
 
 <?php include'../views/partials/footer.php' ?> 

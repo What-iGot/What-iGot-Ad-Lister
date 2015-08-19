@@ -3,10 +3,10 @@ $_ENV = include '../.env.php';
 
 class Model {
 
-    protected static $dbc;
+    public static $dbc;
     protected static $table;
 
-    private $attributes = array();
+    public $attributes = array();
 
     /*
      * Constructor

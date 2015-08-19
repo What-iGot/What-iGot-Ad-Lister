@@ -2,7 +2,7 @@
 require_once 'model.php';
 class Ad extends Model {
 
-    protected static $table = SQL_TABLE;
+    protected static $table = 'items';
 
     public function save()
     {
@@ -32,7 +32,7 @@ class Ad extends Model {
     public function update ()
     {
         self::dbConnect();
-        $query = 'UPDATE contacts 
+        $query = 'UPDATE items 
                     SET name = :item, 
                     description = :description,
                     price = :price,
@@ -40,19 +40,20 @@ class Ad extends Model {
                     postdate = :postdate
                     WHERE id = :id';
         $stmt = self::$dbc->prepare($query);
-        $stmt->bindValue(':item', $this->attributes['name'], PDO::PARAM_STR);
-        $stmt->bindValue(':description', $this->attributes['description'], PDO::PARAM_STR);
-        $stmt->bindValue(':price', $this->attributes['price'], PDO::PARAM_INT);
-        $stmt->bindValue(':image_url', $this->attributes['image_url'], PDO::PARAM_STR);
-        $stmt->bindValue(':postdate', $this->attributes['postdate'], PDO::PARAM_STR);
-        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
+        $stmt->bindValue(':item', $this->name, PDO::PARAM_STR);
+        $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+        $stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
+        $stmt->bindValue(':image_url', $this->image_url, PDO::PARAM_STR);
+        $stmt->bindValue(':postdate', $this->postdate, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        var_dump($stmt);
         $stmt->execute();
     }
 
     public static function find($id)
     {
         self::dbConnect();
-        $query = 'SELECT * FROM ' . SQL_TABLE . ' WHERE id = :id';
+        $query = 'SELECT * FROM items WHERE id = :id';
         $stmt = self::$dbc->prepare($query);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -72,7 +73,7 @@ class Ad extends Model {
     public static function all()
     {
         self::dbConnect();
-        $stmt = self::$dbc->query('SELECT * FROM ' . SQL_TABLE);
+        $stmt = self::$dbc->query('SELECT * FROM items');
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $instance = null;

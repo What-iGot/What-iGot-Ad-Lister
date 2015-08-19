@@ -19,11 +19,9 @@ require_once "../template/bootstrap.php";
                 <h3><?=$item['description']; ?></h3> 
                 <h2><?='$' . $item['price']; ?></h2>
                 <h6><?= $item['postdate']; ?></h6>
-
-        
-
-        <img src="<?=$item['image_url'] ; ?>" class="img-responsive">
-
+                <img src="<?=$item['image_url'] ; ?>" class="img-responsive">
+                
+        <a href="/edit.php?postid=<?="{$item['id']}"; ?>" class="btn">Edit</a>
     <?php include'../views/partials/footer.php' ?>  
 
 </html>

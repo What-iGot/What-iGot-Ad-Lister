@@ -1,6 +1,21 @@
 <?php
+$_ENV = include '../.env.php';
 class Input
 {
+    protected static $dbc;
+    protected static function dbConnect()
+    {
+        //set constants for database connections
+
+        if (!self::$dbc)
+        {
+            self::$dbc = new PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
+
+            self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            
+        }
+    }
     /**
      * Check if a given value was passed in the request
      *
